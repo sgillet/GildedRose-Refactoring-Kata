@@ -60,3 +60,6 @@ class Shop {
     return this.items;
   }
 }
+
+const GildedRose = {Item, Shop};
+module.exports = GildedRose;
