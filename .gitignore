@@ -4,3 +4,4 @@
 /elixir/_build/
 js/node_modules
 js/coverage
+js/.*
