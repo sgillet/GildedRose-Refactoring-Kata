@@ -63,9 +63,10 @@ describe("Gilded Rose", () => {
       items = [];
     })
 
-    it.only("should increase its quality by 1", () => {
+    it("should increase its quality by 1", () => {
       items.push(new GildedRose.Item("Aged Brie", 1, 0));
       items.push(new GildedRose.Item("Aged Brie", 10, 1));
+      items.push(new GildedRose.Item("Aged Brie", -2, 1));
 
       const itemsUptated = new GildedRose.Shop(items).updateQuality();
 
@@ -76,6 +77,10 @@ describe("Gilded Rose", () => {
       assert.equal(itemsUptated[1].name, 'Aged Brie');
       assert.equal(itemsUptated[1].sellIn, 9);
       assert.equal(itemsUptated[1].quality, 2);
+
+      assert.equal(itemsUptated[2].name, 'Aged Brie');
+      assert.equal(itemsUptated[2].sellIn, -3);
+      assert.equal(itemsUptated[2].quality, 3);
     });
 
     it("should stop increasing its quality after 50", () => {
